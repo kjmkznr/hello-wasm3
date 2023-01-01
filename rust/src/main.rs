@@ -8,7 +8,7 @@ fn main() {
         .expect("Unable to create runtime");
     let module = Module::parse(
         &env,
-        &include_bytes!("/Users/kkojima/src/github.com/aralroca/helloworld-wasm-rust/pkg/helloworld_bg.wasm")[..]
+        &include_bytes!("../../wasm/pkg/helloworld_bg.wasm")[..]
         )
         .expect("Unable to parse module");
 

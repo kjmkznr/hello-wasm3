@@ -9,7 +9,7 @@ int main(void)
     try {
         wasm3::environment env;
         wasm3::runtime runtime = env.new_runtime(1024);
-        const char* file_name = "/Users/kkojima/src/github.com/aralroca/helloworld-wasm-rust/pkg/helloworld_bg.wasm";
+        const char* file_name = "../wasm/pkg/helloworld_bg.wasm";
         std::ifstream wasm_file(file_name, std::ios::binary | std::ios::in);
         if (!wasm_file.is_open()) {
             throw std::runtime_error("Failed to open wasm file");
