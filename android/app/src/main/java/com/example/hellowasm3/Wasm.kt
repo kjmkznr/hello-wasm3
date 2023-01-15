@@ -1,5 +1,8 @@
 package com.example.hellowasm3
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
 class Wasm {
     companion object: Fibonacci {
         init {
@@ -11,7 +14,9 @@ class Wasm {
         private external fun loadWasm(wasm: ByteArray)
         private external fun wasmFibonacci(num: Int): Int
         override suspend fun calc(n: Int): Int {
-            return wasmFibonacci(n)
+            return withContext(Dispatchers.IO) {
+                wasmFibonacci(n)
+            }
         }
     }
 }
